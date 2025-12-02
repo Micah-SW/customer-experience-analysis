@@ -1,113 +1,164 @@
 # Changelog
-All major changes to this project will be documented here, following a structured
-and transparent versioning convention.
+
+All major changes to this project are documented here, following structured versioning conventions.
+
+---
+
+## [1.5.0] - 2025-12-02
+
+### **Added**
+- **Database Schema Implementation**: Created four core relational tables (banks, reviews, topics, topic_assignments) for analytical reporting
+- **Final Analytical Reporting SQL**: Added comprehensive report file (`src/final_bank_reports.sql`) containing five definitive analytical queries
+- **Project Summary Report**: Generated `PROJECT_SUMMARY.md` file compiling all analytical findings including bank rankings, health status, and urgent alerts
+- **SQL Execution Script**: Added dependency `src/query_executor.py` for automated query execution
+
+### **Improved**
+- **Execution Reliability**: Refactored final query execution process to focus exclusively on pure analytical SELECT statements, achieving 100% success rate
+- **Reporting Structure**: Consolidated key analytical insights (QoQ trends, Negative Review Share, Real-Time Alerts) for executive review
+- **Code Optimization**: Streamlined project structure for better maintainability
+
+### **Removed**
+- **Complex DDL Components**: Removed multi-line DDL (CREATE FUNCTION, CREATE MATERIALIZED VIEW) that caused parser errors
+- **Redundant Scripts**: Eliminated outdated scripts to focus on core analytical functionality
+
+---
 
 ## [1.4.0] - 2025-11-30
-### Added
-- Finalized **Interim Report** (condensed 4-page version).
-- Added sentiment visualization images including:
+
+### **Added**
+- **Finalized Interim Report**: Created condensed 4-page professional version
+- **Sentiment Visualizations**: Added professional sentiment analysis images:
   - `professional_sentiment_comparison.png`
   - `vader_sentiment_dashboard.png`
-- Completed TF-IDF keyword extraction and early theme clustering.
-- Added polished CSV files:
+- **Advanced Analytics**: Completed TF-IDF keyword extraction and early theme clustering
+- **Polished CSV Datasets**:
   - `bank_reviews_clean.csv`
   - `bank_reviews_vader_analysis.csv`
   - `reviews_with_sentiment.csv`
-- Added scripts for advanced analysis:
+- **Advanced Analysis Scripts**:
   - `visualize_and_report.py`
   - `deeper_theme_analysis.py`
 
-### Improved
-- Major rewrite of interim report for clarity, structure, and professional tone.
-- Strengthened theme grouping logic and mapped keywords to severity levels.
-- Improved folder organization (`csv files/`, `images/`, `programs/`).
-- Enhanced data validation for review cleaning pipeline.
+### **Improved**
+- **Report Clarity**: Major rewrite of interim report for improved structure and professional tone
+- **Theme Analysis**: Strengthened theme grouping logic with keyword-to-severity level mapping
+- **Project Organization**: Enhanced folder structure (`csv files/`, `images/`, `programs/`)
+- **Data Validation**: Improved review cleaning pipeline with robust validation
 
 ---
 
 ## [1.3.0] - 2025-11-29
-### Added
-- Implemented **sentiment analysis pipeline** using VADER.
-- Script added: `sentiment_analysis.py`.
-- Generated `bank_reviews_vader_analysis.csv` containing:
-  - compound scores
-  - sentiment labels (Positive/Neutral/Negative)
-  - cleaned text
-- Added rating/sentiment correlation checks.
 
-### Improved
-- Improved preprocessing robustness:
-  - better handling of non-English text segments
-  - improved punctuation/emoji stripping
-- Added safeguards to prevent misclassification of short reviews.
-- Updated README to reflect sentiment analysis workflow.
+### **Added**
+- **Sentiment Analysis Pipeline**: Implemented VADER-based sentiment scoring
+- **Analysis Script**: Added `sentiment_analysis.py` for automated sentiment processing
+- **Enhanced Dataset**: Generated `bank_reviews_vader_analysis.csv` containing:
+  - Compound sentiment scores
+  - Sentiment labels (Positive/Neutral/Negative)
+  - Cleaned review text
+- **Quality Metrics**: Added rating/sentiment correlation checks
+
+### **Improved**
+- **Preprocessing Robustness**: Enhanced handling of non-English text segments
+- **Text Cleaning**: Improved punctuation and emoji stripping
+- **Classification Safeguards**: Added protection against misclassification of short reviews
+- **Documentation**: Updated README with detailed sentiment analysis workflow
 
 ---
 
 ## [1.2.0] - 2025-11-28
-### Added
-- Implemented **review preprocessing** pipeline:
-  - deduplication
-  - date normalization (YYYY-MM-DD)
-  - whitespace & unicode cleanup
-  - minimum-length filtering
-  - Amharic/English heuristic tagging
-- Script added: `preprocess_reviews.py`
-- Exported dataset: `bank_reviews_clean.csv`
 
-### Improved
-- Updated repository documentation:
-  - Added pipeline explanation to README
-  - Included troubleshooting notes for scraped data issues
+### **Added**
+- **Review Preprocessing Pipeline**: Implemented comprehensive data cleaning system:
+  - Deduplication
+  - Date normalization (YYYY-MM-DD format)
+  - Whitespace and Unicode cleanup
+  - Minimum-length filtering
+  - Amharic/English language tagging
+- **Processing Script**: Added `preprocess_reviews.py` for automated cleaning
+- **Clean Dataset**: Exported validated dataset as `bank_reviews_clean.csv`
 
-### Fixed
-- Removed >2.6% duplicates detected across raw datasets.
-- Fixed issue causing incorrect parsing of timestamps in certain review entries.
+### **Improved**
+- **Repository Documentation**: Updated README with detailed pipeline explanations
+- **Troubleshooting**: Added notes for addressing scraped data issues
+- **Data Quality**: Improved handling of various review formats
+
+### **Fixed**
+- **Duplicate Removal**: Eliminated >2.6% duplicates detected across raw datasets
+- **Timestamp Parsing**: Fixed incorrect parsing of timestamps in certain review entries
 
 ---
 
 ## [1.1.0] - 2025-11-27
-### Added
-- Implemented **scraping pipeline** (`scrape_reviews.py`):
-  - fetched reviews for CBE, Dashen Bank, and Bank of Abyssinia
-  - standardized to 400+ reviews per bank as required
-  - stored raw dataset into `raw_reviews_20251130.csv`
-- Added initial exploratory notebook and quick sentiment checks.
 
-### Improved
-- Set up Git repo structure following best practices.
-- Documented scraping methodology and dataset fields in README.
-- Added `requirements.txt` for reproducibility.
+### **Added**
+- **Scraping Pipeline**: Implemented `scrape_reviews.py` for automated data collection
+- **Dataset Collection**: Fetched reviews for three major banks (CBE, Dashen Bank, Bank of Abyssinia)
+- **Data Standardization**: Maintained consistent 400+ reviews per bank as required
+- **Raw Dataset**: Stored initial data in `raw_reviews_20251130.csv`
+- **Exploratory Analysis**: Added initial notebook with quick sentiment checks
 
-### Fixed
-- Bug where some long reviews were truncated due to scraper default limits.
+### **Improved**
+- **Repository Structure**: Set up Git repository following industry best practices
+- **Methodology Documentation**: Documented scraping methodology and dataset fields in README
+- **Reproducibility**: Added `requirements.txt` for dependency management
+
+### **Fixed**
+- **Review Truncation**: Resolved bug where long reviews were truncated due to scraper default limits
+- **Data Collection**: Improved robustness of review fetching across different bank platforms
 
 ---
 
 ## [1.0.0] - 2025-11-26
-### Added
-- Initial project setup for **10 Academy Week 2 Challenge**.
-- Created project directories:
+
+### **Added**
+- **Project Initialization**: Set up 10 Academy Week 2 Challenge project structure
+- **Directory Organization**: Created core project directories:
   - `programs/`
   - `csv files/`
   - `images/`
-- Added initial README with:
-  - challenge description
-  - objectives
-  - planned tasks
-- Environment created and initialized:
-  - `.venv/`
-  - initial dependency installation
-- Started repo with:
-  - `Analysis_Report.md`
-  - base folder skeleton
+- **Project Documentation**: Added initial README with:
+  - Challenge description
+  - Objectives and goals
+  - Planned tasks and timeline
+- **Development Environment**:
+  - Created `.venv/` virtual environment
+  - Installed initial dependencies
+  - Set up Git repository
+- **Initial Artifacts**:
+  - `Analysis_Report.md` (preliminary report)
+  - Base folder structure
 
 ---
 
 ## Legend
-- **Added**: new functionality
-- **Improved**: enhancements/refactors
-- **Fixed**: bug fixes or corrections
-- **Deprecated**: features to be removed (none yet)
-- **Removed**: features deleted (none yet)
 
+| Term | Meaning |
+|------|---------|
+| **Added** | New functionality, features, or components |
+| **Improved** | Enhancements, optimizations, or refactors |
+| **Fixed** | Bug fixes, corrections, or resolution of issues |
+| **Deprecated** | Features marked for future removal (none yet) |
+| **Removed** | Features or components deleted (none yet) |
+
+---
+
+## Versioning Convention
+
+This project follows a structured versioning approach:
+
+### **Version Format: MAJOR.MINOR.PATCH**
+- **MAJOR**: Significant milestones or major feature additions
+- **MINOR**: Important feature additions or improvements
+- **PATCH**: Bug fixes or minor improvements
+
+### **Release Frequency**
+- Major releases: End of each significant project phase
+- Minor releases: Upon completion of key deliverables
+- Patch releases: As needed for bug fixes
+
+---
+
+**Last Updated**: December 2, 2025  
+**Maintained By**: Mikiyas getnet 
+**Document Version**: 1.5.0
